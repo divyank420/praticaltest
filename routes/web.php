@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-use Session;
+//use Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +25,6 @@ Route::any('home',function(){
 
 Route::any('logout',function(){
     auth()->logout();
-    Session::flash('success','User successfully logged out');
+    session()->flash('success','User successfully logged out');
     return redirect()->route('login');
 })->name('logout');

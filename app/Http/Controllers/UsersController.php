@@ -26,8 +26,8 @@ class UsersController extends Controller
             
             $this->validateLogin($request);
             //$this->sendLoginResponse($request);
-            $remember_me = $request->has('remember_me') ? true : false;
-            if(auth()->attempt($request->only('email', 'password'))){
+            $remember_me = $request->has('remember') ? true : false;
+            if(auth()->attempt($request->only('email', 'password'),$remember_me)){
                 $request->session()->flash('success', 'Successfully logged In');
                 return redirect()->route('home');
             }else{
